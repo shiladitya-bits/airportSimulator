@@ -1,0 +1,10 @@
+#include "header.h"
+void boardFlight()
+{
+	raise(SIGSTOP);
+	printf("All passengers are requested to move to the Gate.\n");
+	sleep(2);
+	kill(getppid(),SIGUSR2);
+	exit(0);
+}
+

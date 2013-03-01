@@ -1,0 +1,63 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<unistd.h>
+#include<errno.h>
+#include<sys/types.h>
+#include<sys/wait.h>
+struct date
+{
+	int dd;
+	int mm;
+	int yy;
+};
+struct time
+{
+	int hour;
+	int min;
+};
+struct flight
+{
+	char ticket_no[10];
+	char flt_no[6];
+	struct time ftime;
+	struct date fdate;
+	char destination[50];
+};
+typedef struct pass_struct
+{
+	int valid;
+	int ret_flag;
+	struct time etime;
+	struct date edate;
+	struct flight flt;
+	struct flight ret_flt;
+
+	char passNo[10];
+	struct date pass_exp;
+	char nation[20];
+	struct date visa_exp;
+	char visa_country[20];
+
+	char fname[80];
+	char lname[80];	
+	char gender;
+	int age;
+	int num_bags;
+	int *wt_bags;
+	int **content;
+	int **explosives;
+	//struct bag *bags;
+}
+passenger;
+int colorful(int);
+int checkPalin(int);
+int checkPrime(int);
+void boardFlight();
+void checkLuggage(passenger *,int i);
+void inputAll(passenger *);
+void makePass(passenger);
+int checkExtraCost(passenger);
+void addCostoFile(passenger,int);
+void appendBaggageID(passenger);
+void checkMFbag(passenger);
+
